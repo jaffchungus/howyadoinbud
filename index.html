@@ -1,291 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vibe Check</title>
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Custom CSS -->
-  <style>
-    /* Basic styling */
-    .hidden {
-      display: none;
-    }
-    .active {
-      color: #fff !important;
-    }
-    .active svg {
-      fill: #fff !important;
-    }
-    /* Animation keyframes */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    /* Animation classes */
-    .fade-in {
-      animation: fadeIn 0.5s ease-in-out;
-    }
-    .bounce {
-      animation: bounce 0.5s ease-in-out;
-    }
-    /* Additional custom styles */
-    body {
-      background: linear-gradient(to bottom right, #4b0082, #483d8b);
-      font-family: 'Poppins', sans-serif;
-    }
-    .rating-label {
-      transition: all 0.2s ease-in-out;
-    }
-    .rating-label:hover {
-      transform: scale(1.1);
-    }
-    /* Responsive design */
-    @media (max-width: 640px) {
-      .rating-container {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
-</head>
-<body class="bg-gradient-to-br from-purple-900 to-indigo-900 min-h-screen flex flex-col justify-between">
-  <div class="container mx-auto px-4 py-8">
-    <!-- Header section -->
-    <div class="text-center mb-8 fade-in">
-      <h1 class="text-white text-4xl font-bold mb-2">🌟 Vibe Check 🌟</h1>
-      <p class="text-indigo-200 text-lg">How's your day going?</p>
-    </div>
-    <!-- Rating buttons section -->
-    <div class="flex flex-wrap justify-center gap-4 mb-8 rating-container">
-      <!-- Rating labels -->
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
-        1
-        <input type="radio" class="invisible absolute" name="rating" value="1" />
-      </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
-        2
-        <input type="radio" class="invisible absolute" name="rating" value="2" />
-      </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
-        3
-        <input type="radio" class="invisible absolute" name="rating" value="3" />
-      </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
-        4
-        <input type="radio" class="invisible absolute" name="rating" value="4" />
-      </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
-        5
-        <input type="radio" class="invisible absolute" name="rating" value="5" />
-      </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
-        6
-        <input type="radio" class="invisible absolute" name="rating" value="6" />
-      </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
-        7
-        <input type="radio" class="invisible absolute" name="rating" value="7" />
-      </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
-        8
-        <input type="radio" class="invisible absolute" name="rating" value="8" />
-      </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
-        9
-        <input type="radio" class="invisible absolute" name="rating" value="9" />
-      </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
-        10
-        <input type="radio" class="invisible absolute" name="rating" value="10" />
-      </label>
-    </div>
-    <!-- Stats section -->
-    <div class="flex flex-wrap justify-center gap-4 mb-8">
-      <div class="bg-indigo-800 rounded-xl p-6 text-center w-40">
-        <p class="text-indigo-200 text-base font-medium">Average Vibe</p>
-        <p id="average-rating" class="text-white text-3xl font-bold">0</p>
-      </div>
-      <div class="bg-indigo-800 rounded-xl p-6 text-center w-40">
-        <p class="text-indigo-200 text-base font-medium">Total Responses</p>
-        <p id="response-count" class="text-white text-3xl font-bold">0</p>
-      </div>
-    </div>
-    <!-- Submit button section -->
-    <div class="text-center mb-8">
-      <button id="submit-btn" class="bg-indigo-600 text-white px-8 py-3 rounded-full text-lg font-medium transition-all duration-200 hover:bg-indigo-500 hover:scale-105">Submit Vibe 🚀</button>
-    </div>
-    <!-- Progress bar section -->
-    <div class="rounded-full bg-indigo-800 mx-8 mb-4">
-      <div id="progress-bar" class="h-3 rounded-full bg-indigo-500" style="width: 0%; transition: width 0.5s ease-in-out;"></div>
-    </div>
-    <p id="based-on" class="text-indigo-300 text-center mb-8">Based on <span id="response-count-2" class="font-medium">0</span> vibes</p>
-  </div>
-  <!-- Navigation section -->
-  <div class="flex justify-around items-center bg-indigo-900 py-4 border-t border-indigo-700">
-    <a id="home-btn" class="flex flex-col items-center justify-center text-white active" href="#">
-      <div class="flex items-center justify-center mb-1">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256">
-          <path d="M224,115.55V208a16,16,0,0,1-16,16H168a16,16,0,0,1-16-16V168a8,8,0,0,0-8-8H112a8,8,0,0,0-8,8v40a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V115.55a16,16,0,0,1,5.17-11.78l80-75.48.11-.11a16,16,0,0,1,21.53,0,1.14,1.14,0,0,0,.11.11l80,75.48A16,16,0,0,1,224,115.55Z"></path>
-        </svg>
-      </div>
-      <span class="text-sm">Home</span>
-    </a>
-    <a id="calendar-btn" class="flex flex-col items-center justify-center text-indigo-300" href="#">
-      <div class="flex items-center justify-center mb-1">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256">
-          <path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-96-88v64a8,8,0,0,1-16,0V132.94l-4.42,2.22a8,8,0,0,1-7.16-14.32l16-8A8,8,0,0,1,112,120Zm59.16,30.45L152,176h16a8,8,0,0,1,0,16H136a8,8,0,0,1-6.4-12.8l28.78-38.37A8,8,0,1,0,145.07,132a8,8,0,1,1-13.85-8A24,24,0,0,1,176,136,23.76,23.76,0,0,1,171.16,150.45Z"></path>
-        </svg>
-      </div>
-      <span class="text-sm">Calendar</span>
-    </a>
-    <a id="stats-btn" class="flex flex-col items-center justify-center text-indigo-300" href="#">
-      <div class="flex items-center justify-center mb-1">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 256 256">
-          <path d="M232,208a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V48a8,8,0,0,1,16,0v94.37L90.73,98a8,8,0,0,1,10.07-.38l58.81,44.11L218.73,90a8,8,0,1,1,10.54,12l-64,56a8,8,0,0,1-10.07.38L96.39,114.29,40,163.63V200H224A8,8,0,0,1,232,208Z"></path>
-        </svg>
-      </div>
-      <span class="text-sm">Stats</span>
-    </a>
-  </div>
-  <!-- JavaScript section -->
-  <script>
-    // Initialize ratings array from localStorage or empty array
-    let ratings = JSON.parse(localStorage.getItem('ratings')) || [];
-
-    // Function to update the UI with current data
-    function updateUI() {
-      const responseCount = ratings.length;
-      const sum = ratings.reduce((a, b) => a + b, 0);
-      const average = responseCount > 0 ? (sum / responseCount).toFixed(1) : 0;
-      const progress = responseCount > 0 ? (sum / (responseCount * 10)) * 100 : 0;
-
-      document.getElementById('average-rating').textContent = average;
-      document.getElementById('response-count').textContent = responseCount;
-      document.getElementById('response-count-2').textContent = responseCount;
-      document.getElementById('progress-bar').style.width = `${progress}%`;
-
-      // Show calculating text only if no responses yet
-      document.getElementById('calculating-text').classList.toggle('hidden', responseCount > 0);
-    }
-
-    // Function to handle form submission
-    document.getElementById('submit-btn').addEventListener('click', function() {
-      const selectedRating = document.querySelector('input[name="rating"]:checked');
-      if (selectedRating) {
-        const ratingValue = parseInt(selectedRating.value);
-        ratings.push(ratingValue);
-
-        // Save to localStorage
-        localStorage.setItem('ratings', JSON.stringify(ratings));
-
-        // Update UI
-        updateUI();
-
-        // Reset selected rating
-        selectedRating.checked = false;
-      } else {
-        alert('Please select a rating before submitting!');
-      }
-    });
-
-    // Function to handle navigation button clicks
-    function handleNavigationClick(event, buttonId) {
-      event.preventDefault();
-      document.querySelectorAll('.just').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      document.getElementById(buttonId).classList.add('active');
-      alert(`${buttonId.replace('-btn', '').charAt(0).toUpperCase() + buttonId.replace('-btn', '').slice(1)} view would be shown here`);
-    }
-
-    // Navigation button event listeners
-    document.getElementById('home-btn').addEventListener('click', function(e) {
-      handleNavigationClick(e, 'home-btn');
-    });
-
-    document.getElementById('calendar-btn').addEventListener('click', function(e) {
-      handleNavigationClick(e, 'calendar-btn');
-    });
-
-    document.getElementById('stats-btn').addEventListener('click', function(e) {
-      handleNavigationClick(e, 'stats-btn');
-    });
-
-    // Function to add a new rating
-    function addRating(rating) {
-      ratings.push(rating);
-      localStorage.setItem('ratings', JSON.stringify(ratings));
-      updateUI();
-    }
-
-    // Function to clear all ratings
-    function clearRatings() {
-      ratings = [];
-      localStorage.setItem('ratings', JSON.stringify(ratings));
-      updateUI();
-    }
-
-    // Function to get all ratings
-    function getRatings() {
-      return ratings;
-    }
-
-    // Function to calculate the average rating
-    function calculateAverageRating() {
-      const sum = ratings.reduce((a, b) => a + b, 0);
-      return ratings.length > 0 ? sum / ratings.length : 0;
-    }
-
-    // Function to get the total number of responses
-    function getTotalResponses() {
-      return ratings.length;
-    }
-
-    // Function to get the highest rating
-    function getHighestRating() {
-      return ratings.length > 0 ? Math.max(...ratings) : 0;
-    }
-
-    // Function to get the lowest rating
-    function getLowestRating() {
-      return ratings.length > 0 ? Math.min(...ratings) : 0;
-    }
-
-    // Function to get the most frequent rating
-    function getMostFrequentRating() {
-      if (ratings.length === 0) return 0;
-      const frequencyMap = {};
-      let maxFrequency = 0;
-      let mostFrequentRating = ratings[0];
-
-      ratings.forEach(rating => {
-        frequencyMap[rating] = (frequencyMap[rating] || 0) + 1;
-        if (frequencyMap[rating] > maxFrequency) {
-          maxFrequency = frequencyMap[rating];
-          mostFrequentRating = rating;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Gen Z Meme Generator ✨</title>
+    <style>
+        /* CSS Variables for Themes */
+        :root {
+            --bg-color: #000;
+            --text-color: #fff;
+            --accent-color: #ff69b4;
+            --font-family: 'Comic Neue', cursive;
         }
-      });
+        .pastel-chaos {
+            --bg-color: #ffccff;
+            --text-color: #333;
+            --accent-color: #66ff66;
+        }
+        .clowncore {
+            --bg-color: #ff0000;
+            --text-color: #ffff00;
+            --accent-color: #0000ff;
+        }
 
-      return mostFrequentRating;
-    }
+        /* General Styles */
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            animation: bgAnimation 5s infinite alternate;
+        }
+        @keyframes bgAnimation {
+            0% { background: linear-gradient(45deg, var(--bg-color), var(--accent-color)); }
+            100% { background: linear-gradient(45deg, var(--accent-color), var(--bg-color)); }
+        }
+        .meme-generator {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px var(--accent-color);
+            animation: bounce 1s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .template-picker select, .text-editor input, .text-editor select, .ai-meme-writer input {
+            padding: 10px;
+            margin: 5px;
+            border: 2px solid var(--accent-color);
+            border-radius: 5px;
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-family);
+        }
+        .meme-area {
+            position: relative;
+            margin: 20px 0;
+        }
+        .meme-area img {
+            max-width: 100%;
+            border: 5px solid var(--accent-color);
+            border-radius: 10px;
+        }
+        .top-text, .bottom-text {
+            position: absolute;
+            left: 0;
+            right: 0;
+            font-size: 2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: var(--text-color);
+            text-shadow: 2px 2px #000;
+            padding: 0 10px;
+        }
+        .top-text { top: 10px; }
+        .bottom-text { bottom: 10px; }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background: var(--accent-color);
+            color: var(--bg-color);
+            font-size: 1em;
+            font-family: var(--font-family);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+        /* Glitch Effect */
+        .glitch {
+            animation: glitch 0.5s infinite;
+        }
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-5px, 5px); }
+            40% { transform: translate(5px, -5px); }
+            60% { transform: translate(-5px, 5px); }
+            80% { transform: translate(5px, -5px); }
+            100% { transform: translate(0); }
+        }
+        /* Responsive Design */
+        @media (max-width: 400px) {
+            h1 { font-size: 1.8em; }
+            .top-text, .bottom-text { font-size: 1.5em; }
+            button { padding: 8px 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="meme-generator">
+        <h1>✨ Gen Z Meme Generator ✨</h1>
+        <div class="template-picker">
+            <select id="template-select">
+                <option value="wojak">Wojak 😭</option>
+                <option value="npc">NPC 🤖</option>
+                <option value="gigachad">Gigachad 💪</option>
+                <option value="drake">Drake Hotline 📞</option>
+            </select>
+            <input type="file" id="upload-image" accept="image/*">
+        </div>
+        <div class="meme-area">
+            <img id="meme-image" src="https://via.placeholder.com/500x300" alt="Meme Image">
+            <div class="top-text"></div>
+            <div class="bottom-text"></div>
+        </div>
+        <div class="text-editor">
+            <input type="text" id="top-text-input" placeholder="Top Text">
+            <input type="text" id="bottom-text-input" placeholder="Bottom Text">
+            <select id="font-select">
+                <option value="Comic Neue">Comic Neue</option>
+                <option value="Bungee">Bungee</option>
+                <option value="Arial">Arial (Basic)</option>
+            </select>
+            <input type="number" id="font-size" value="20" min="10" max="50">
+            <button id="add-emoji">Add Emoji 😂</button>
+            <button id="glitch-effect">Glitch It 💾</button>
+        </div>
+        <div class="theme-toggle">
+            <button id="dark-mode">Dark Meme Mode 🌚</button>
+            <button id="pastel-chaos">Pastel Chaos 🍬</button>
+            <button id="clowncore">Clowncore 🤡</button>
+        </div>
+        <button id="random-meme">Random Meme Mode 🎲</button>
+        <button id="slang-injector">Slang Injector 🧃</button>
+        <div class="ai-meme-writer">
+            <input type="text" id="vibe-input" placeholder="Enter vibe (e.g., sad but funny)">
+            <button id="generate-ai-meme">Generate AI Meme 🐸</button>
+        </div>
+        <div class="actions">
+            <button id="download">Download Meme 📤</button>
+            <button id="share">Share Meme 🚀</button>
+        </div>
+    </div>
 
-    // Function to initialize the UI
-    function initializeUI() {
-      updateUI();
-    }
+    <script>
+        // Elements
+        const memeImage = document.getElementById('meme-image');
+        const topText = document.querySelector('.top-text');
+        const bottomText = document.querySelector('.bottom-text');
+        const topTextInput = document.getElementById('top-text-input');
+        const bottomTextInput = document.getElementById('bottom-text-input');
+        const fontSelect = document.getElementById('font-select');
+        const fontSizeInput = document.getElementById('font-size');
+        const addEmojiBtn = document.getElementById('add-emoji');
+        const glitchEffectBtn = document.getElementById('glitch-effect');
+        const templateSelect = document.getElementById('template-select');
+        const uploadImage = document.getElementById('upload-image');
+        const randomMemeBtn = document.getElementById('random-meme');
+        const slangInjectorBtn = document.getElementById('slang-injector');
+        const vibeInput = document.getElementById('vibe-input');
+        const generateAiMemeBtn = document.getElementById('generate-ai-meme');
+        const downloadBtn = document.getElementById('download');
+        const shareBtn = document.getElementById('share');
+        const themeButtons = document.querySelectorAll('.theme-toggle button');
 
-    // Initialize UI on page load
-    initializeUI();
-  </script>
+        // Sound Effect (Simulated)
+        function playSound() {
+            // Placeholder for sound effects (e.g., Vine Boom or XP Error)
+            console.log('💥 Vine Boom!');
+        }
+
+        // Theme Switching
+        themeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                document.body.className = button.id;
+                playSound();
+            });
+        });
+
+        // Template Selection
+        templateSelect.addEventListener('change', () => {
+            const template = templateSelect.value;
+            memeImage.src = `https://via.placeholder.com/500x300?text=${template}`;
+            playSound();
+        });
+
+        // Image Upload
+        uploadImage.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    memeImage.src = reader.result;
+                };
+                reader.readAsDataURL(file);
+                playSound();
+            }
+        });
+
+        // Text Input
+        topTextInput.addEventListener('input', () => {
+            topText.textContent = topTextInput.value;
+        });
+        bottomTextInput.addEventListener('input', () => {
+            bottomText.textContent = bottomTextInput.value;
+        });
+
+        // Font and Size
+        fontSelect.addEventListener('change', () => {
+            topText.style.fontFamily = fontSelect.value;
+            bottomText.style.fontFamily = fontSelect.value;
+        });
+        fontSizeInput.addEventListener('input', () => {
+            topText.style.fontSize = `${fontSizeInput.value}px`;
+            bottomText.style.fontSize = `${fontSizeInput.value}px`;
+        });
+
+        // Add Emoji
+        addEmojiBtn.addEventListener('click', () => {
+            const emojis = ['😂', '💀', '✨', '🤡', '🧃', '🐸', '🔥', '😭'];
+            const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+            topTextInput.value += randomEmoji;
+            bottomTextInput.value += randomEmoji;
+            topText.textContent += randomEmoji;
+            bottomText.textContent += randomEmoji;
+            playSound();
+        });
+
+        // Glitch Effect
+        glitchEffectBtn.addEventListener('click', () => {
+            topText.classList.toggle('glitch');
+            bottomText.classList.toggle('glitch');
+            playSound();
+        });
+
+        // Random Meme Mode
+        randomMemeBtn.addEventListener('click', () => {
+            const randomCaptions = [
+                'when u eat the air and it crunch',
+                'this ain’t it 💀',
+                'I’m built diff 🧍‍♂️✨',
+                'brain rot activated',
+                'unhinged Gen Alpha energy',
+                'skibidi bop yes yes'
+            ];
+            const randomCaption = randomCaptions[Math.floor(Math.random() * randomCaptions.length)];
+            topTextInput.value = randomCaption;
+            bottomTextInput.value = randomCaption;
+            topText.textContent = randomCaption;
+            bottomText.textContent = randomCaption;
+            memeImage.src = `https://via.placeholder.com/500x300?text=${templateSelect.options[Math.floor(Math.random() * templateSelect.options.length)].value}`;
+            playSound();
+        });
+
+        // Slang Injector
+        slangInjectorBtn.addEventListener('click', () => {
+            const slang = ['bruh', 'yeet', 'lit', 'fam', 'GOAT', 'sus', 'rizz', 'vibes'];
+            const randomSlang = slang[Math.floor(Math.random() * slang.length)];
+            topTextInput.value += ` ${randomSlang}`;
+            bottomTextInput.value += ` ${randomSlang}`;
+            topText.textContent += ` ${randomSlang}`;
+            bottomText.textContent += ` ${randomSlang}`;
+            playSound();
+        });
+
+        // AI Meme Writer (Simulated)
+        generateAiMemeBtn.addEventListener('click', () => {
+            const vibe = vibeInput.value.toLowerCase();
+            const aiCaptions = {
+                'sad but funny': 'when life hits but u still clownin 🤡',
+                'brain rot': 'my last brain cell: yeet',
+                'unhinged gen alpha energy': 'skibidi toilet rizz ohio'
+            };
+            const caption = aiCaptions[vibe] || 'vibe not found, try again 💀';
+            topTextInput.value = caption;
+            bottomTextInput.value = caption;
+            topText.textContent = caption;
+            bottomText.textContent = caption;
+            playSound();
+        });
+
+        // Download Meme (Placeholder)
+        downloadBtn.addEventListener('click', () => {
+            alert('Download coming soon, fam! Save it manually for now 📸');
+            playSound();
+        });
+
+        // Share Meme (Placeholder)
+        shareBtn.addEventListener('click', () => {
+            alert('Share link coming soon! Tell ur squad to check this drip 🚀');
+            playSound();
+        });
+    </script>
 </body>
 </html>
