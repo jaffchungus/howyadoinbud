@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vibe Check</title>
+  <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
   <style>
+    /* Basic styling */
     .hidden {
       display: none;
     }
@@ -17,70 +22,94 @@
     .active svg {
       fill: #fff !important;
     }
-    .fade-in {
-      animation: fadeIn 0.5s ease-in-out;
-    }
+    /* Animation keyframes */
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
-    }
-    .bounce {
-      animation: bounce 0.5s ease-in-out;
     }
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
+    /* Animation classes */
+    .fade-in {
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    .bounce {
+      animation: bounce 0.5s ease-in-out;
+    }
+    /* Additional custom styles */
+    body {
+      background: linear-gradient(to bottom right, #4b0082, #483d8b);
+      font-family: 'Poppins', sans-serif;
+    }
+    .rating-label {
+      transition: all 0.2s ease-in-out;
+    }
+    .rating-label:hover {
+      transform: scale(1.1);
+    }
+    /* Responsive design */
+    @media (max-width: 640px) {
+      .rating-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   </style>
 </head>
-<body class="bg-gradient-to-br from-purple-900 to-indigo-900 min-h-screen flex flex-col justify-between font-poppins">
+<body class="bg-gradient-to-br from-purple-900 to-indigo-900 min-h-screen flex flex-col justify-between">
   <div class="container mx-auto px-4 py-8">
+    <!-- Header section -->
     <div class="text-center mb-8 fade-in">
       <h1 class="text-white text-4xl font-bold mb-2">🌟 Vibe Check 🌟</h1>
       <p class="text-indigo-200 text-lg">How's your day going?</p>
     </div>
-    <div class="flex flex-wrap justify-center gap-4 mb-8">
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer transition-all duration-200 hover:scale-110 bounce">
+    <!-- Rating buttons section -->
+    <div class="flex flex-wrap justify-center gap-4 mb-8 rating-container">
+      <!-- Rating labels -->
+      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
         1
         <input type="radio" class="invisible absolute" name="rating" value="1" />
       </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer transition-all duration-200 hover:scale-110 bounce">
+      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
         2
         <input type="radio" class="invisible absolute" name="rating" value="2" />
       </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer transition-all duration-200 hover:scale-110 bounce">
+      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
         3
         <input type="radio" class="invisible absolute" name="rating" value="3" />
       </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer transition-all duration-200 hover:scale-110 bounce">
+      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
         4
         <input type="radio" class="invisible absolute" name="rating" value="4" />
       </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer transition-all duration-200 hover:scale-110 bounce">
+      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
         5
         <input type="radio" class="invisible absolute" name="rating" value="5" />
       </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer transition-all duration-200 hover:scale-110 bounce">
+      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
         6
         <input type="radio" class="invisible absolute" name="rating" value="6" />
       </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer transition-all duration-200 hover:scale-110 bounce">
+      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
         7
         <input type="radio" class="invisible absolute" name="rating" value="7" />
       </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer transition-all duration-200 hover:scale-110 bounce">
+      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
         8
         <input type="radio" class="invisible absolute" name="rating" value="8" />
       </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer transition-all duration-200 hover:scale-110 bounce">
+      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
         9
         <input type="radio" class="invisible absolute" name="rating" value="9" />
       </label>
-      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer transition-all duration-200 hover:scale-110 bounce">
+      <label class="text-xl font-medium flex items-center justify-center rounded-full border-2 border-indigo-400 w-12 h-12 text-white has-[:checked]:bg-indigo-500 has-[:checked]:border-indigo-500 relative cursor-pointer rating-label">
         10
         <input type="radio" class="invisible absolute" name="rating" value="10" />
       </label>
     </div>
+    <!-- Stats section -->
     <div class="flex flex-wrap justify-center gap-4 mb-8">
       <div class="bg-indigo-800 rounded-xl p-6 text-center w-40">
         <p class="text-indigo-200 text-base font-medium">Average Vibe</p>
@@ -91,14 +120,17 @@
         <p id="response-count" class="text-white text-3xl font-bold">0</p>
       </div>
     </div>
+    <!-- Submit button section -->
     <div class="text-center mb-8">
       <button id="submit-btn" class="bg-indigo-600 text-white px-8 py-3 rounded-full text-lg font-medium transition-all duration-200 hover:bg-indigo-500 hover:scale-105">Submit Vibe 🚀</button>
     </div>
+    <!-- Progress bar section -->
     <div class="rounded-full bg-indigo-800 mx-8 mb-4">
       <div id="progress-bar" class="h-3 rounded-full bg-indigo-500" style="width: 0%; transition: width 0.5s ease-in-out;"></div>
     </div>
     <p id="based-on" class="text-indigo-300 text-center mb-8">Based on <span id="response-count-2" class="font-medium">0</span> vibes 🌈</p>
   </div>
+  <!-- Navigation section -->
   <div class="flex justify-around items-center bg-indigo-900 py-4 border-t border-indigo-700">
     <a id="home-btn" class="flex flex-col items-center justify-center text-white active" href="#">
       <div class="flex items-center justify-center mb-1">
@@ -125,56 +157,135 @@
       <span class="text-sm">Stats</span>
     </a>
   </div>
+  <!-- JavaScript section -->
   <script>
+    // Initialize ratings array from localStorage or empty array
     let ratings = JSON.parse(localStorage.getItem('ratings')) || [];
+
+    // Function to update the UI with current data
     function updateUI() {
       const responseCount = ratings.length;
       const sum = ratings.reduce((a, b) => a + b, 0);
       const average = responseCount > 0 ? (sum / responseCount).toFixed(1) : 0;
       const progress = responseCount > 0 ? (sum / (responseCount * 10)) * 100 : 0;
+
       document.getElementById('average-rating').textContent = average;
       document.getElementById('response-count').textContent = responseCount;
       document.getElementById('response-count-2').textContent = responseCount;
       document.getElementById('progress-bar').style.width = `${progress}%`;
+
+      // Show calculating text only if no responses yet
       document.getElementById('calculating-text').classList.toggle('hidden', responseCount > 0);
     }
+
+    // Function to handle form submission
     document.getElementById('submit-btn').addEventListener('click', function() {
       const selectedRating = document.querySelector('input[name="rating"]:checked');
       if (selectedRating) {
         const ratingValue = parseInt(selectedRating.value);
         ratings.push(ratingValue);
+
+        // Save to localStorage
         localStorage.setItem('ratings', JSON.stringify(ratings));
+
+        // Update UI
         updateUI();
+
+        // Reset selected rating
         selectedRating.checked = false;
       } else {
         alert('Please select a rating before submitting!');
       }
     });
+
+    // Function to handle navigation button clicks
+    function handleNavigationClick(event, buttonId) {
+      event.preventDefault();
+      document.querySelectorAll('.just').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById(buttonId).classList.add('active');
+      alert(`${buttonId.replace('-btn', '').charAt(0).toUpperCase() + buttonId.replace('-btn', '').slice(1)} view would be shown here`);
+    }
+
+    // Navigation button event listeners
     document.getElementById('home-btn').addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelectorAll('.just').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      this.classList.add('active');
-      alert('Home view would be shown here');
+      handleNavigationClick(e, 'home-btn');
     });
+
     document.getElementById('calendar-btn').addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelectorAll('.just').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      this.classList.add('active');
-      alert('Calendar view would be shown here');
+      handleNavigationClick(e, 'calendar-btn');
     });
+
     document.getElementById('stats-btn').addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelectorAll('.just').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      this.classList.add('active');
-      alert('Statistics view would be shown here');
+      handleNavigationClick(e, 'stats-btn');
     });
-    updateUI();
+
+    // Function to add a new rating
+    function addRating(rating) {
+      ratings.push(rating);
+      localStorage.setItem('ratings', JSON.stringify(ratings));
+      updateUI();
+    }
+
+    // Function to clear all ratings
+    function clearRatings() {
+      ratings = [];
+      localStorage.setItem('ratings', JSON.stringify(ratings));
+      updateUI();
+    }
+
+    // Function to get all ratings
+    function getRatings() {
+      return ratings;
+    }
+
+    // Function to calculate the average rating
+    function calculateAverageRating() {
+      const sum = ratings.reduce((a, b) => a + b, 0);
+      return ratings.length > 0 ? sum / ratings.length : 0;
+    }
+
+    // Function to get the total number of responses
+    function getTotalResponses() {
+      return ratings.length;
+    }
+
+    // Function to get the highest rating
+    function getHighestRating() {
+      return ratings.length > 0 ? Math.max(...ratings) : 0;
+    }
+
+    // Function to get the lowest rating
+    function getLowestRating() {
+      return ratings.length > 0 ? Math.min(...ratings) : 0;
+    }
+
+    // Function to get the most frequent rating
+    function getMostFrequentRating() {
+      if (ratings.length === 0) return 0;
+      const frequencyMap = {};
+      let maxFrequency = 0;
+      let mostFrequentRating = ratings[0];
+
+      ratings.forEach(rating => {
+        frequencyMap[rating] = (frequencyMap[rating] || 0) + 1;
+        if (frequencyMap[rating] > maxFrequency) {
+          maxFrequency = frequencyMap[rating];
+          mostFrequentRating = rating;
+        }
+      });
+
+      return mostFrequentRating;
+    }
+
+    // Function to initialize the UI
+    function initializeUI() {
+      updateUI();
+    }
+
+    // Initialize UI on page load
+    initializeUI();
   </script>
 </body>
 </html>
